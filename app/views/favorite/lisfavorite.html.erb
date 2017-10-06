@@ -1,0 +1,32 @@
+<h1 class="text-center">Peliculas  </h1><center><%= link_to "Mis favoritas", favorites_path, class: "btn btn-primary"%></center>
+ <table class="table" >
+   <thead class="thead-inverse header-table-black">
+     <tr>
+       <th>Nombre</th>
+       <th>Año</th>
+       <th>Portada</th>
+       <th>Acciones</th>
+     </tr>
+   </thead>
+   <tbody>
+     <center> <%= paginate @films%> </center>
+     <% @films.each do |film| %>
+       <tr>
+         <td><%= film.tittle %></td>
+         <td><%= film.year %></td>
+         <td>
+          <%= image_tag film.cover, height: "150" %>
+        </td>
+         <td>
+            <%= link_to "Ver", show_favo_path_path(film.id), class: "btn btn-primary", method: :post %>
+            <%= link_to "añadir favorito",  favorite_add_film_path(film.id), class: "btn btn-success", method: :post%>
+
+        </td>
+
+       </tr>
+     <% end %>
+
+
+   </tbody>
+ </table>
+ <%= paginate @films%>

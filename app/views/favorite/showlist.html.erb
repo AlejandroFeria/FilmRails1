@@ -1,0 +1,10 @@
+<div class="text-center">
+  <h1><%= @films.tittle %></h1>
+  <i><strong>Año : </strong><%= @films.year %></i>
+  <br>
+  <i><strong>Description : </strong><%= @films.description %></i>
+  <br>
+  <i><strong>Imagen: </strong><%= image_tag @films.cover, :width => 170, :height => 190 if @films.cover.present? %> </i>
+  <br>
+  <%= link_to "Regresar a mis favoritas",  favorites_path, class:"btn btn-primary" %>
+</div>

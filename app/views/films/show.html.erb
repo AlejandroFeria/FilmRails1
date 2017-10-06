@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="rows"> <br>
+
+    <center><i><h1><%= @films.tittle %> </h1></i></center>
+      <br>
+    <center><i><strong>Año : </strong><%= @films.year %></i></center>
+    <br>
+    <center><i><strong>Description : </strong> <br> <%= @films.description %></i></center>
+    <br>
+    <center><i><strong>Imagen: </strong> <br> <%= image_tag @films.cover, :width => 170, :height => 190 if @films.cover.present? %> </i></center>
+    <br>
+<center><%= link_to "Regresar a peliculas", films_path, class:"btn btn-primary" %></center>
+  </div>
+</div>

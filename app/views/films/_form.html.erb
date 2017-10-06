@@ -1,0 +1,29 @@
+
+<h1 class="text-center">Peliculas  <%= link_to "vista favorito", favorites_path, class: "btn btn-success"%></h1>
+ <table class="table" >
+   <thead class="thead-inverse header-table-black">
+     <tr>
+       <th>Nombre</th>
+       <th>Año</th>
+       <th>Portada</th>
+       <th>Acciones</th>
+     </tr>
+   </thead>
+   <tbody>
+     <% @films.each do |fi| %>
+       <tr>
+         <td><%= fi.tittle %></td>
+         <td><%= fi.year %></td>
+         <td>
+          <%= image_tag film.cover, height: "150" %>
+        </td>
+         <td>
+            <%= link_to "Ver", film_path(fi.id), class: "btn btn-primary" %>
+            <%= link_to "añadir favorito", favorites_path(fi.id), class: "btn btn-success", method: :new%>
+
+        </td>
+
+       </tr>
+     <% end %>
+   </tbody>
+ </table>

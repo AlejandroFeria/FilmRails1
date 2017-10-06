@@ -1,0 +1,40 @@
+<h1>Lista de peliculas de Usuarios</h1><br><br>
+<% @user.each do |user| %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-6 col-sm-2" ></div>
+      <div class="col-xs-6 col-sm-2" >
+        <strong><%= user.email %></strong>
+      </div>
+      <div class="col-xs-6 col-sm-4" >
+
+            <table class="table" >
+              <thead class="thead-inverse header-table-black">
+                <tr>
+                  <th>TITULO: </th>
+                  <th>AÑO: </th>
+                  <th>cover</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% user.filmms.each do |film| %>
+                  <tr>
+                    <td><%= film.tittle %></td>
+                    <td><%= film.year %></td>
+                    <td><%= image_tag film.cover, height: "80", width: "50" %></td>
+                  </tbody>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+
+      </div>
+      <div class="col-xs-6 col-sm-3" >
+
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+<% end %>
+<%= link_to "Mis favoritas", favorites_path, class: "btn btn-primary"%>

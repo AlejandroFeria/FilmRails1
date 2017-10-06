@@ -1,0 +1,34 @@
+<h1 class="text-center">Editar Pelicula</h1>
+ 
+<div class="text-center center-form">
+  <%= form_for @films, url: film_path(@films.id) do |f| %>
+    <div class="form-group">
+      <%= f.label :tittle, "Titulo" %>
+      <%= f.text_field :tittle, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :year, "Año" %>
+      <%= f.text_field :year, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :raiting, "Puntaje (0-5)" %>
+      <%= f.number_field :raiting, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :description, "Descripcion" %>
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+    <div  class="form-group"> 
+       <i><strong>Imagen: </strong><%= image_tag @films.cover, :width => 170, :height => 190 if @films.cover.present? %> </i>
+    </div>
+    <div class="form-group" >
+      <%= f.label :cover, "Cover" %>
+      <%= f.file_field :cover, class: "btn btn-info" %>
+    </div>
+
+    <%= f.submit class: "btn btn-success"  %>
+  <% end %>
+</div>

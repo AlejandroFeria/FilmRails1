@@ -1,0 +1,24 @@
+
+  <h1 class="text-center">Peliculas favoritas <%= link_to "añadir a mi lista", lis_favo_path_path, class: "btn btn-success" %></h1>
+
+    <% current_user.filmms.each do |fi| %>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-6 col-sm-2" ></div>
+          <div class="col-xs-6 col-sm-3" >
+             <%= image_tag fi.cover, height: "200", width: "130" %>
+          </div>
+          <div class="clearfix visible-xs"></div>
+          <div class="col-xs-6 col-sm-3" >
+            <h1><strong><%= fi.tittle %></strong></h1>
+            <strong> Calificacion:  <%= fi.raiting %></strong>
+            <br>
+            <strong> Description: <br>  <%= fi.description %></strong>
+          </div>
+          <div class="col-xs-6 col-sm-3" >
+            <%= link_to "Ver",   show_favo_path_path(fi.id), class: "btn btn-primary", method: :post %>
+          </div>
+        </div>
+      </div>
+      <br>
+    <% end %>
